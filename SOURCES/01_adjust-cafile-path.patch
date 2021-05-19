@@ -1,0 +1,13 @@
+--- a/src/imapfilter.c	2019-11-14 17:45:17.000000000 +0100
++++ b/src/imapfilter.c	2019-11-18 17:40:17.426255653 +0100
+@@ -70,8 +70,8 @@
+ 	opts.truststore = NULL;
+ 	if (exists_dir("/etc/ssl/certs"))
+ 		capath = "/etc/ssl/certs";
+-	if (exists_file("/etc/ssl/cert.pem"))
+-		cafile = "/etc/ssl/cert.pem";
++	if (exists_file("/etc/ssl/certs/ca-bundle.crt"))
++		cafile = "/etc/ssl/certs/ca-bundle.crt";
+ 
+ 	env.home = NULL;
+ 	env.pathmax = -1;

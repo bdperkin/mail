@@ -1,0 +1,30 @@
+From 297b8c60803db84248c10e1eceed1d45e9226a97 Mon Sep 17 00:00:00 2001
+From: David Sommerseth <davids@redhat.com>
+Date: Tue, 2 Jul 2013 20:19:19 +0200
+Subject: [PATCH] Tweaks to src/Makefile to fit Fedora requirements
+
+Signed-off-by: David Sommerseth <davids@redhat.com>
+---
+ src/Makefile |    6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -2,7 +2,7 @@ DESTDIR ?=
+ PREFIX ?= /usr/local
+ BINDIR = $(PREFIX)/bin
+ SHAREDIR = $(PREFIX)/share/imapfilter
+-MANDIR = $(PREFIX)/man
++MANDIR = $(PREFIX)/share/man
+ 
+ MYCFLAGS =
+ MYLDFLAGS =
+@@ -16,7 +16,7 @@ LIBPCRE = -lpcre
+ LIBSSL = -lssl
+ LIBCRYPTO = -lcrypto
+ 
+-CFLAGS = -Wall -Wextra -O -DCONFIG_SHAREDIR='"$(SHAREDIR)"' $(INCDIRS) $(MYCFLAGS)
++CFLAGS += -Wall -Wextra -DCONFIG_SHAREDIR='"$(SHAREDIR)"' $(INCDIRS)
+ LDFLAGS = $(LIBDIRS) $(MYLDFLAGS)
+ LIBS = -lm -ldl $(LIBLUA) $(LIBPCRE) $(LIBSSL) $(LIBCRYPTO) $(MYLIBS)
+ 
