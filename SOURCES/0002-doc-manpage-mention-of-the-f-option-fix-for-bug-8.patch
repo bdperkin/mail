@@ -1,0 +1,54 @@
+From 02ac0ce311deed36679937a4d7ad882bfce29dfc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Rapha=C3=ABl=20Droz?= <raphael.droz+floss@gmail.com>
+Date: Sun, 12 Jun 2016 21:33:00 -0300
+Subject: [PATCH 2/3] doc: manpage mention of the -f option (+ fix for bug #8)
+
+---
+ abook.1   | 8 +-------
+ abookrc.5 | 4 ----
+ 2 files changed, 1 insertion(+), 11 deletions(-)
+
+diff --git a/abook.1 b/abook.1
+index 2628200..96d665d 100644
+--- a/abook.1
++++ b/abook.1
+@@ -6,12 +6,6 @@ abook \- text\-based address book program
+ .B abook
+ [ \fIOPTION\fR ]
+ .SH DESCRIPTION
+-This manual page documents briefly the
+-.B abook
+-program.
+-This manual page was written for the Debian GNU/Linux distribution
+-because the original program does not have a manual page.
+-.PP
+ .B abook 
+ is a text-based address book program. It contains Name, Email, Address 
+ and various Phone fields. It is designed for use with mutt, but can be
+@@ -24,7 +18,7 @@ Show usage.
+ \fB\-C \-\-config\fP \fI<filename>\fR
+ Use an alternative configuration file (default is \fI$HOME/.abook/abookrc\fR).
+ .TP
+-\fB\-\-datafile\fP \fI<filename>\fR
++\fB\-f \-\-datafile\fP \fI<filename>\fR
+ Use an alternative addressbook file (default is \fI$HOME/.abook/addressbook\fR).
+ .TP
+ \fB\-\-mutt\-query\fP \fI<string>\fR [ \fB\-\-outformat\fP \fI<outputformat>\fR ]
+diff --git a/abookrc.5 b/abookrc.5
+index 88e05f6..8fbb10b 100644
+--- a/abookrc.5
++++ b/abookrc.5
+@@ -3,10 +3,6 @@
+ .SH NAME
+ \fB$HOME/.abook/abookrc\fP \- configuration file for abook address book program
+ .SH DESCRIPTION
+-This manual page documents briefly the
+-.B abookrc
+-file.
+-.br
+ .B abookrc
+ is the (optional) configuration file for use with the
+ .B abook(1)
+-- 
+2.13.5
+

@@ -1,0 +1,41 @@
+From 54f8e4ac4e0bdf7622909c4cdf5768bebe72460c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Rapha=C3=ABl=20Droz?= <raphael.droz+floss@gmail.com>
+Date: Sun, 12 Jun 2016 23:14:12 -0300
+Subject: [PATCH 3/3] build: fix compilation when used with GCC -std=gnu99 or
+ -std=gnu11 (default in GCC 5.0) * derived from patch #6 * fix Debian bug
+ #777764
+
+---
+ configure    | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index b09897b..86016ed 100755
+--- a/configure
++++ b/configure
+@@ -8431,7 +8431,7 @@ if test x$debug = xtrue; then
+ fi
+ 
+ if test x$GCC = xyes; then
+-	CFLAGS="-Wall $CFLAGS"
++	CFLAGS="-Wall -fgnu89-inline $CFLAGS"
+ fi
+ 
+ ac_config_files="$ac_config_files Makefile abook.spec po/Makefile.in"
+diff --git a/configure.ac b/configure.ac
+index 5a9ae3b..bcb0a58 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -175,7 +175,7 @@ if test x$debug = xtrue; then
+ fi
+ 
+ if test x$GCC = xyes; then
+-	CFLAGS="-Wall $CFLAGS"
++	CFLAGS="-Wall -fgnu89-inline $CFLAGS"
+ fi
+ 
+ AC_CONFIG_FILES([Makefile abook.spec po/Makefile.in])
+-- 
+2.13.5
+
